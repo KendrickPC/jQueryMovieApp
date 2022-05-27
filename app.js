@@ -1,7 +1,7 @@
 $(".submit").on("click", function() {
   const movieTitle = $(".movie-title").val()
   const movieRating = $(".movie-rating").val()
-  $("ul").append(`<li>${movieTitle} ${movieRating} <button class="removeBtn">Remove</button></li>`)
+  $(".movieList").append(`<li>${movieTitle} ${movieRating} <button class="removeBtn">Remove</button></li>`)
   // setting input form values to blank again after submission:
   // $("button").addClass("removeBtn");
   $(".movie-title").val('');
@@ -9,8 +9,8 @@ $(".submit").on("click", function() {
 })
 
 
-$(".removeBtn").on("click", function(evt) {
-  console.log(evt);
-  console.log("CLICK EVENT LISTENER NOT SHOWING UP!")
+$(document).on("click", ".removeBtn", function(evt) {
+  evt.target.parentElement.remove();
+  
 })
 
